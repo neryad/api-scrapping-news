@@ -1,0 +1,12 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const testRoute = require('./routes/routes');
+const listinRoute = require('./routes/listinRoutes');
+const diarioLibreRoute = require('./routes/diarioLibre');
+app.use(cors());
+app.use('/api/', testRoute);
+app.use('/api/listin', listinRoute);
+app.use('/api/diarioLibre', diarioLibreRoute);
+app.listen(process.env.PORT, () => console.log(`Server on port: ${process.env}`));
