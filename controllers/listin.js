@@ -1,32 +1,26 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-//const expres = require('express');
 
-const getListinNews = (req, res, next) => {
+const getListinNews = async (req, res, next) => {
   let articles = [];
+  const mediaUrl = 'https://listindiario.com/';
+  try {
+    const { data: html } = await axios.get(mediaUrl);
+    const $ = cheerio.load(html);
 
-  const url = 'https://listindiario.com/';
+    $('.row_item', html).each(function () {
+      const text = $(this).find('h2');
+      const url = mediaUrl + $(this).find('a').attr('href');
+      const img = $(this).find('img').attr('src');
+      const title = text.text();
+      articles = [...articles, { title, url, img }];
+    });
+    res.json({ ok: true, data: articles });
 
-  axios(url)
-    .then((response) => {
-      const html = response.data;
-
-      const $ = cheerio.load(html);
-      $('.row_item', html).each(function () {
-        const text = $(this).find('h2');
-        const url = 'https://listindiario.com' + $(this).find('a').attr('href');
-        const img = $(this).find('img').attr('src');
-        const title = text.text();
-
-        articles.push({ title, url, img });
-      });
-
-      res.status(200).json({
-        ok: true,
-        data: articles,
-      });
-    })
-    .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
+    res.json({ ok: false, data: 'Error' });
+  }
 };
 
 module.exports = { getListinNews };
