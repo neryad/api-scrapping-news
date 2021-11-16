@@ -1,21 +1,23 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-const getNacionalNews = async (req, res, next) => {
+const getRemolachaNews = async (req, res, next) => {
   let articles = [];
-  const mediaUrl = 'https://elnacional.com.do/';
+  const mediaUrl = 'https://remolacha.net/';
   try {
     const { data: html } = await axios.get(mediaUrl);
     const $ = cheerio.load(html);
 
-    $('.utf_post_block_style').each(function () {
-      const title = $(this).find('a').text();
+    $('.post', html).each(function () {
+      const text = $(this).find('h1');
       const url = $(this).find('a').attr('href');
-      let img = $(this).find('img').attr('src');
+      let img = $(this).find('img').attr('data-orig-file');
       if (!img) {
         img = 'https://www.tbh-location.fr/wp-content/uploads/2019/12/news-e1544436032461.png';
       }
-      articles.push({ title, url, img });
+      const title = text.text();
+
+      articles = [...articles, { title, url, img }];
     });
     res.json({ ok: true, data: articles });
   } catch (error) {
@@ -24,4 +26,4 @@ const getNacionalNews = async (req, res, next) => {
   }
 };
 
-module.exports = { getNacionalNews };
+module.exports = { getRemolachaNews };
