@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 const getListinNews = async (req, res, next) => {
   let articles = [];
-  const mediaUrl = 'https://listindiario.com/';
+  const mediaUrl = 'https://listindiario.com';
   try {
     const { data: html } = await axios.get(mediaUrl);
     const $ = cheerio.load(html);
@@ -16,7 +16,6 @@ const getListinNews = async (req, res, next) => {
       articles = [...articles, { title, url, img }];
     });
     res.json({ ok: true, data: articles });
-
   } catch (error) {
     console.log(error);
     res.json({ ok: false, data: 'Error' });
