@@ -12,6 +12,7 @@ const getListinNews = async (req, res, next) => {
       const text = $(this).find('h2');
       const url = mediaUrl + $(this).find('a').attr('href');
       const img = $(this).find('img').attr('src');
+
       const title = text.text();
       articles = [...articles, { title, url, img }];
     });
