@@ -32,6 +32,10 @@ const getDiarioLibreNews = async (req, res, next) => {
       const img = clearStepThree;
       articles.push({ title, url, img });
     });
+    // Filtrar objetos con títulos vacíos o repetidos
+    articles = articles.filter((article, index, self) => {
+      return article.title.trim() !== '' && self.findIndex((a) => a.title === article.title) === index;
+    });
     res.json({ ok: true, data: articles });
   } catch (error) {
     console.log(error);
