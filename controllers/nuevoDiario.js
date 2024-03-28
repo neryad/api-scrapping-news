@@ -14,6 +14,9 @@ const getNuevoDiarioNews = async (req, res, next) => {
       const url = $(this).find('.title').attr('href');
       // const img = $(this).find('a').attr('src');
       const img = $(this).find('.img-fluid').attr('data-src') || $(this).find('.img-fluid').attr('src');
+       if (!img) {
+        img = 'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png';
+      }
       console.log(img, 'img');
       // const title = $('.title').text().trim();
       // const url = $('.title').attr('href');
