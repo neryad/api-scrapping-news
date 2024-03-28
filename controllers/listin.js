@@ -8,7 +8,7 @@ const getListinNews = async (req, res, next) => {
     const { data: html } = await axios.get(mediaUrl);
     const $ = cheerio.load(html);
 
-    $('.row_item', html).each(function () {
+    $('.c-article', html).each(function () {
       const text = $(this).find('h2');
       const url = mediaUrl + $(this).find('a').attr('href');
       const img = $(this).find('img').attr('src');
