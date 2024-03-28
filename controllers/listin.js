@@ -11,7 +11,8 @@ const getListinNews = async (req, res, next) => {
     $('.c-article', html).each(function () {
       const text = $(this).find('h2');
       const url = mediaUrl + $(this).find('a').attr('href');
-      const img = $(this).find('img').attr('src');
+      const img = $(this).find('img').attr('src') ||
+        'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png';;
 
       const title = text.text();
       articles = [...articles, { title, url, img }];
