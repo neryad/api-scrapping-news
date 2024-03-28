@@ -12,8 +12,8 @@ const getRemolachaNews = async (req, res, next) => {
       const text = $(this).find('h1');
       const url = $(this).find('a').attr('href');
       let img = $(this).find('img').attr('data-orig-file');
-      if (!img) {
-        img = 'https://www.tbh-location.fr/wp-content/uploads/2019/12/news-e1544436032461.png';
+     if (!img) {
+        img = 'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png';
       }
       const title = text.text();
 
