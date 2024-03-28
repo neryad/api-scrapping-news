@@ -1,3 +1,6 @@
+const axios = require('axios');
+const cheerio = require('cheerio');
+
 const getDiarioLibreNews = async (req, res, next) => {
   try {
     const mediaUrl = 'https://www.diariolibre.com/ultima-hora';
@@ -17,7 +20,7 @@ const getDiarioLibreNews = async (req, res, next) => {
     });
 
     const uniqueArticles = removeEmptyAndDuplicateTitles(articles);
-        const excludedArticles = uniqueArticles.slice(2, -2);
+    const excludedArticles = uniqueArticles.slice(2, -2);
 
     res.json({ ok: true, data: excludedArticles });
   } catch (error) {
