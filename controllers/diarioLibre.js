@@ -24,7 +24,7 @@ const getDiarioLibreNews = async (req, res, next) => {
       //let sourceImg = $('a img').attr('data-src');
       // console.log(sourceImg);
       if (!sourceImg) {
-        sourceImg = 'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png;
+        sourceImg = 'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png';
       }
       let clearStepOne = sourceImg.replace(' 620w', '');
       let clearStepTwo = clearStepOne.replace(' 980w', '');
