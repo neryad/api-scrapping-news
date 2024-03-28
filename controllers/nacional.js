@@ -11,10 +11,11 @@ const getNacionalNews = async (req, res, next) => {
     $('.utf_post_block_style').each(function () {
       const title = $(this).find('a').text();
       const url = $(this).find('a').attr('href');
-      let img = $(this).find('img').attr('src');
-      if (!img) {
-        img = 'https://www.tbh-location.fr/wp-content/uploads/2019/12/news-e1544436032461.png';
-      }
+      let img = $(this).find('img').attr('src')||
+        'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png';
+      // if (!img) {
+      //   img = 'https://www.tbh-location.fr/wp-content/uploads/2019/12/news-e1544436032461.png';
+      // }
       articles.push({ title, url, img });
     });
     res.json({ ok: true, data: articles });
