@@ -17,8 +17,9 @@ const getDiarioLibreNews = async (req, res, next) => {
     });
 
     const uniqueArticles = removeEmptyAndDuplicateTitles(articles);
+        const excludedArticles = uniqueArticles.slice(2, -2);
 
-    res.json({ ok: true, data: uniqueArticles });
+    res.json({ ok: true, data: excludedArticles });
   } catch (error) {
     console.log(error);
     res.json({ ok: false, data: 'Error' });
