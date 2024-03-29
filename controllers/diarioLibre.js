@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 const getDiarioLibreNews = async (req, res, next) => {
   try {
-    const mediaUrl = 'https://www.diariolibre.com/ultima-hora';
+    const mediaUrl = 'https://www.diariolibre.com';
     const { data } = await axios.get(mediaUrl);
     const $ = cheerio.load(data);
 
