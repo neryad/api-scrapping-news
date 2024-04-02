@@ -15,11 +15,11 @@ const getNacionalNews = async (req, res, next) => {
     }
     const html = await response.text();
     const $ = cheerio.load(html);
-    console.log(html);
+
 
     $('.utf_post_block_style').each(function () {
-      const title = $(this).find('a').text();
-      const url = $(this).find('a').attr('href');
+      const title = $(this).find('.utf_post_title').text();
+      const url = $(this).find('.utf_post_title a').attr('href');
       let img = $(this).find('img').attr('data-src') ||
         'https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png';
 
