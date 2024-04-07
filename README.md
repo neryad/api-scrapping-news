@@ -24,10 +24,10 @@ This Node.js web API scrapes news articles from various Dominican Republic news 
    ```
 2. Make HTTP requests to the following endpoints:
 - /diariolibre: Scrapes news from Diario Libre.
-- /listindiario: Scrapes news from Listín Diario.
+- /listin: Scrapes news from Listín Diario.
 - /remolacha: Scrapes news from Remolacha.net.
-- /elnacional: Scrapes news from El Nacional.
-- /elnuevodiario: Scrapes news from El Nuevo Diario.
+- /nacional: Scrapes news from El Nacional.
+- /nuevoDiario: Scrapes news from El Nuevo Diario.
 
 ## Example:
 
@@ -39,16 +39,16 @@ This Node.js web API scrapes news articles from various Dominican Republic news 
  GET /diariolibre: Get news articles from Diario Libre.
 
 * Listín Diario
-GET /listindiario: Get news articles from Listín Diario.
+GET /listin: Get news articles from Listín Diario.
 
 * Remolacha.net
 GET /remolacha: Get news articles from Remolacha.net.
 
 * El Nacional
-GET /elnacional: Get news articles from El Nacional.
+GET /nacional: Get news articles from El Nacional.
 
 * El Nuevo Diario
-GET /elnuevodiario: Get news articles from El Nuevo Diario.
+GET /nuevoDiario: Get news articles from El Nuevo Diario.
 
 ## Contributing
 Contributions are welcome! If you find any issues or want to add more features, feel free to open an issue or submit a pull request.
