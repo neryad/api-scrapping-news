@@ -18,7 +18,11 @@ const getNacionalNews = async (req, res, next) => {
     const $ = cheerio.load(html);
 
     $(".utf_post_block_style").each(function () {
-      const title = $(this).find(".utf_post_title").text();
+      const title = $(this)
+        .find(".utf_post_title")
+        .text()
+        .replace(/\n|\t/g, "")
+        .trim();
       const url = $(this).find(".utf_post_title a").attr("href");
       let img =
         $(this).find("img").attr("src") ||
