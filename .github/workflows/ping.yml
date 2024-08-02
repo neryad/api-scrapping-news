@@ -3,7 +3,7 @@ name: Ping API
 # Ejecutar el workflow cada hora
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '5 * * * *'
 
 jobs:
   ping:
