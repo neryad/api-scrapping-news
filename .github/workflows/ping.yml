@@ -1,9 +1,8 @@
 name: Ping API
 
 on:
-  push:
-    branches:
-      - master  # O la rama en la que estás trabajando
+  schedule:
+    - cron: '*/1 * * * *'
 
 jobs:
   ping:
@@ -11,3 +10,4 @@ jobs:
     steps:
       - name: Send a ping request to the API
         run: curl -s -o /dev/null -w "%{http_code}" https://api-scrapping-news-rd.onrender.com/api/hoy
+
