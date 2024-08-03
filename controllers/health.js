@@ -6,6 +6,8 @@ const checkHealth = async (req, res, next) => {
   };
 
   try {
+    console.log("wake up", { healthCheck });
+
     res.status(200).send(healthCheck);
   } catch (error) {
     healthCheck.message = error.message;
