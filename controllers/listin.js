@@ -30,6 +30,10 @@ const getListinNews = async (req, res, next) => {
         .text()
         .replace(/[\n\t\\"]/g, "")
         .trim();
+
+      // if (title.trim() !== "" && url !== undefined) {
+      //   articles.push({ title, url, img });
+      // }
       articles = [...articles, { title, url, img }];
     });
     res.json({ ok: true, data: articles });
