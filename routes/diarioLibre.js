@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const { getDiarioLibreNews } = require('../controllers/diarioLibre');
+import { Router } from "express";
+import { getDiarioLibreNews } from "../controllers/diarioLibre.js";
 
-router.get('/', getDiarioLibreNews);
+const router = Router();
 
-module.exports = router;
+router.get("/", getDiarioLibreNews);
+
+export default router;

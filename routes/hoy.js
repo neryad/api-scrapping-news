@@ -1,7 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const { getHoyNews } = require("../controllers/hoy");
+import { Router } from "express";
+import { getHoyNews } from "../controllers/hoy.js";
+
+const router = Router();
 
 router.get("/", getHoyNews);
 
-module.exports = router;
+export default router;

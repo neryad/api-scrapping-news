@@ -1,15 +1,21 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import testRoute from "./routes/routes.js";
+import listinRoute from "./routes/listinRoutes.js";
+import diarioLibreRoute from "./routes/diarioLibre.js";
+import nacionalRoute from "./routes/nacional.js";
+import nuevoDiarioRoute from "./routes/nuevoDiario.js";
+import remolachaRoute from "./routes/remolacha.js";
+import hoyRoute from "./routes/hoy.js";
+import healthRoute from "./routes/health.js";
+import detailsExtractorRoute from "./routes/details-extractor.js";
+
 const app = express();
-const testRoute = require("./routes/routes");
-const listinRoute = require("./routes/listinRoutes");
-const diarioLibreRoute = require("./routes/diarioLibre");
-const nacionalRoute = require("./routes/nacional");
-const nuevoDiarioRoute = require("./routes/nuevoDiario");
-const remolachaRoute = require("./routes/remolacha");
-const hoyRoute = require("./routes/hoy");
-const healthRoute = require("./routes/health");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(cors());
 app.use("/api/", testRoute);
 app.use("/api/listin", listinRoute);
@@ -19,6 +25,8 @@ app.use("/api/nuevoDiario", nuevoDiarioRoute);
 app.use("/api/remolacha", remolachaRoute);
 app.use("/api/hoy", hoyRoute);
 app.use("/api/health", healthRoute);
+app.use("/api/details", detailsExtractorRoute);
+
 app.listen(process.env.PORT, () =>
   console.log(`Server on port: ${process.env.PORT}`)
 );

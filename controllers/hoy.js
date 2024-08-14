@@ -1,6 +1,6 @@
-const cheerio = require("cheerio");
-
-const getHoyNews = async (req, res, next) => {
+//const cheerio = require("cheerio");
+import cheerio from "cheerio";
+export const getHoyNews = async (req, res, next) => {
   let articles = [];
   const mediaUrl = "https://hoy.com.do/secciones/el-pais/";
   try {
@@ -45,4 +45,4 @@ const getHoyNews = async (req, res, next) => {
   }
 };
 
-module.exports = { getHoyNews };
+// module.exports = { getHoyNews };

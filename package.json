@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "web api scrapping",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": " node index.js",
     "dev": "node --watch  index.js"
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/neryad/api-scrapping-news#readme",
   "dependencies": {
+    "@extractus/article-extractor": "^8.0.10",
     "cheerio": "^1.0.0-rc.10",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

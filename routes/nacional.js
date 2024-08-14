@@ -1,6 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const { getNacionalNews } = require('../controllers/nacional');
+import { Router } from "express";
+import { getNacionalNews } from "../controllers/nacional.js";
 
-router.get('/', getNacionalNews);
-module.exports = router;
+const router = Router();
+
+router.get("/", getNacionalNews);
+
+export default router;

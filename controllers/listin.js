@@ -1,6 +1,6 @@
-const cheerio = require("cheerio");
-
-const getListinNews = async (req, res, next) => {
+//const cheerio = require("cheerio");
+import cheerio from "cheerio";
+export const getListinNews = async (req, res, next) => {
   let articles = [];
   const mediaUrl = "https://listindiario.com";
   try {
@@ -43,4 +43,4 @@ const getListinNews = async (req, res, next) => {
   }
 };
 
-module.exports = { getListinNews };
+//module.exports = { getListinNews };

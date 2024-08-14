@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const { getRemolachaNews } = require('../controllers/remolacha');
+import { Router } from "express";
+import { getRemolachaNews } from "../controllers/remolacha.js";
 
-router.get('/', getRemolachaNews);
+const router = Router();
 
-module.exports = router;
+router.get("/", getRemolachaNews);
+
+export default router;
