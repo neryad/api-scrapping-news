@@ -9,8 +9,12 @@ import nuevoDiarioRoute from "./routes/nuevoDiario.js";
 import remolachaRoute from "./routes/remolacha.js";
 import hoyRoute from "./routes/hoy.js";
 import healthRoute from "./routes/health.js";
+import detailsExtractorRoute from "./routes/details-extractor.js";
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
 app.use("/api/", testRoute);
@@ -21,6 +25,7 @@ app.use("/api/nuevoDiario", nuevoDiarioRoute);
 app.use("/api/remolacha", remolachaRoute);
 app.use("/api/hoy", hoyRoute);
 app.use("/api/health", healthRoute);
+app.use("/api/details", detailsExtractorRoute);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server on port: ${process.env.PORT}`)
