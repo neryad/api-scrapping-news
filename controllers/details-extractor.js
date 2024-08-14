@@ -4,7 +4,8 @@ import { extract } from "@extractus/article-extractor";
 export const detailsExtractor = async (req, res, next) => {
   console.log(req.body.url);
   const newsUrl = req.body.url;
-
+  const defaultImg =
+    "https://raw.githubusercontent.com/neryad/api-scrapping-news/master/assets/news.png";
   if (!newsUrl) {
     return res.status(400).json({
       ok: false,
@@ -54,7 +55,7 @@ export const detailsExtractor = async (req, res, next) => {
         url,
         title,
         description,
-        image,
+        image: image || defaultImg,
         author,
         favicon,
         content: cleanContent,
