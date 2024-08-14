@@ -1,4 +1,4 @@
-const checkHealth = async (req, res, next) => {
+export const checkHealth = async (req, res, next) => {
   const healthCheck = {
     uptime: process.uptime(),
     message: "ok",
@@ -15,4 +15,4 @@ const checkHealth = async (req, res, next) => {
   }
 };
 
-module.exports = { checkHealth };
+//module.exports = { checkHealth };
