@@ -2,7 +2,7 @@ name: Ping API
 
 on:
   schedule:
-    - cron: '0,30 * * * *'
+    - cron: '*/15 * * * *'
 
 jobs:
   ping:
@@ -10,4 +10,3 @@ jobs:
     steps:
       - name: Send a ping request to the API
         run: curl -s -o /dev/null -w "%{http_code}" https://api-scrapping-news-rd.onrender.com/api/health
-
