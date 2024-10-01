@@ -2,7 +2,7 @@ name: Ping API
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   ping:
